@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title 
+    = full_title(yield(:title)) 
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags
+    <!--[if lt IE 9]>
+    script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"
+      
+    <![endif]-->
+  
+  body
+    header.navbar.navbar-fixed-top.navbar-inverse
+      .container
+      = link_to 'Besyariとは？', static_pages_about_path, id: 'logo'
+      nav
+        ul.nav.navbar-nav.navbar-right
+          li = link_to 'マガジン',   static_pages_help_path, target: "_blank"
+          li = link_to 'Besyari',   '#'
+          li = link_to 'お題登録',   '#' 
+          li = link_to 'ログイン', '#' 
+          
+    
+    .container
+    == yield 
+
+  footer.footer
+    small
+       a href="http://www.railstutorial.org/" Ruby on Rails Tutorial
+       a href="http://www.michaelhartl.com/" Michael Hartl
+    nav
+      ul
+        li = link_to "お問い合わせ",   static_pages_contact_path , target: "_blank"
+        li = link_to "利用規約", '#' 
+        li = link_to "プライバシーポリシー", '#' 
