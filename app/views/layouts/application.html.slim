@@ -14,16 +14,19 @@ html
   body
     header.navbar.navbar-fixed-top.navbar-inverse
       .container
-      = link_to 'Besyariとは？', static_pages_about_path, id: 'logo'
-      nav
-        ul.nav.navbar-nav.navbar-right
-          li = link_to 'マガジン',   static_pages_help_path, target: "_blank"
-          li = link_to 'Besyari',   '#'
-          li = link_to 'お題登録',   '#' 
-          li = link_to 'ログイン', '#' 
+        = link_to 'Besyariとは？', static_pages_about_path, id: 'logo'
+        nav
+          ul.nav.navbar-nav.navbar-right
+            li = link_to 'マガジン',   static_pages_help_path, target: "_blank"
+            li = link_to 'Besyari',   '#'
+            li = link_to 'お題登録',   '#' 
+            li = link_to 'ログイン', '#' 
           
     
     .container
+      - flash.each do |message_type, message| 
+        div class="alert" class="alert-#{message_type}"
+          = message 
     == yield 
 
   footer.footer
@@ -35,3 +38,5 @@ html
         li = link_to "お問い合わせ",   static_pages_contact_path , target: "_blank"
         li = link_to "利用規約", '#' 
         li = link_to "プライバシーポリシー", '#' 
+  
+  = debug(params) if Rails.env.development? 
