@@ -18,10 +18,23 @@ html
         nav
           ul.nav.navbar-nav.navbar-right
             li = link_to 'マガジン',   static_pages_help_path, target: "_blank"
-            li = link_to 'Besyari',   '#'
+            li = link_to 'Besyari',   static_pages_home_path
             li = link_to 'お題登録',   '#' 
-            li = link_to 'ログイン', '#' 
-          
+            /li = link_to 'ログイン', sessions_new_path
+            - if logged_in?  
+              li.dropdown
+                a.dropdown-toggle  href="#"  data-toggle="dropdown" 
+                  = t(".Account")
+                  b.caret
+            
+                ul.dropdown-menu
+                  li = link_to "Profile", current_user 
+                  li = link_to "Settings", '#' 
+                  li.divider
+                  li = link_to "ログアウト", logout_path, method: "delete" 
+            - else 
+                  li = link_to "ログイン", login_path 
+        
     
     .container
       - flash.each do |message_type, message| 
@@ -31,12 +44,12 @@ html
 
   footer.footer
     small
-       a href="http://www.railstutorial.org/" Ruby on Rails Tutorial
-       a href="http://www.michaelhartl.com/" Michael Hartl
+       a = link_to 'トップページに戻る', static_pages_home_path
+       
     nav
       ul
         li = link_to "お問い合わせ",   static_pages_contact_path , target: "_blank"
         li = link_to "利用規約", '#' 
         li = link_to "プライバシーポリシー", '#' 
   
-  = debug(params) if Rails.env.development? 
+  /= debug(params) if Rails.env.development? 
