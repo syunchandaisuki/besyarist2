@@ -11,6 +11,11 @@ h1 Log in
       = f.label :password 
       = f.password_field :password, class: 'form-control' 
 
+      = f.label :remember_me, class: "checkbox inline" do 
+        = f.check_box :remember_me
+        span このコンピューターにログイン情報を記録させる
+    
+      
       = f.submit "Log in", class: "btn btn-primary" 
    
 
