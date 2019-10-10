@@ -13,12 +13,10 @@ h1 Log in
 
       = f.label :remember_me, class: "checkbox inline" do 
         = f.check_box :remember_me
-        span このコンピューターにログイン情報を記録させる
+        span このコンピューターにログイン情報を記憶させる
     
       
       = f.submit "Log in", class: "btn btn-primary" 
    
 
-    p 
-      |  新規登録はこちら
-      = link_to "Sign up now!", signup_path
+    p  = link_to "新規会員登録", signup_path

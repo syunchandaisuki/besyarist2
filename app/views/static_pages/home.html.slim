@@ -56,12 +56,14 @@
       div
       
 h2
-  p This is the home page for the
-  = link_to "besyari", static_pages_about_path, target: "_blank"
- 
+  p 
+    |
+      This is the home page for the  
+    = link_to "besyari", static_pages_about_path
+  
 
 
-  = link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" 
+  = link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" 
 
 //= link_to image_tag("mori.jpeg", alt: "Rails logo"),
             'http://rubyonrails.org/' 
